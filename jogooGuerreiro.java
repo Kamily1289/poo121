@@ -64,6 +64,7 @@ Random gerador = new Random();
 
     public void lutar2(jogooGuerreiro srAlfonso) {
 
+        
         if (srAlfonso.getEnergia() == 0) {
             System.out.printf("%s ganhou!\n", srAlfonso.nome);
             return;
