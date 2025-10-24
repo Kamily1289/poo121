@@ -41,19 +41,51 @@ Random gerador = new Random();
     public void lutar1(jogooGuerreiro srAlfonso){
         
         while (true) {
-            if( atacar() == 1){
+            if(srAlfonso.atacar() == 1){
                 decremento();
-            
             }
-            if ( atacar() == 1) {
-                decremento();
+
+            if (atacar() == 1) {
+                srAlfonso.decremento();
+            }
+
+            if (srAlfonso.energia == 0) {
+                System.out.printf("%s vencedor!", nome);
+                break;
+            }
+
+            if (energia == 0) {
+                System.out.printf("%s vencedor!", srAlfonso.nome); 
+                break;
             }
         }
+        
+    }
+
+    public void lutar2(jogooGuerreiro srAlfonso) {
+
+        if (srAlfonso.getEnergia() == 0) {
+            System.out.printf("%s ganhou!\n", srAlfonso.nome);
+            return;
+        }
+        if (atacar() == 1) {
+            srAlfonso.decremento();
+        }
+
+        if (energia == 0) {
+            System.out.printf("%S perdeu!\n", nome);
+            return;
+        }
+        if (srAlfonso.atacar() == 1) {
+            decremento();
+        }
+
+        lutar2(srAlfonso);
 
     }
+
 //o método toString deve mostrar o “estado” do guerreiro.
-
+    public String toString() {
+        return "Nome: " + nome + "\nCodigo: " + codigo + "\nEnergia: " + energia;
+    }
 }
-
-
-
